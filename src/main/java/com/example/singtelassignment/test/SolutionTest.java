@@ -1,9 +1,6 @@
 package com.example.singtelassignment.test;
 
-import com.example.singtelassignment.model.Bird;
-import com.example.singtelassignment.model.Chicken;
-import com.example.singtelassignment.model.Duck;
-import com.example.singtelassignment.model.Rooster;
+import com.example.singtelassignment.model.*;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -73,6 +70,27 @@ public class SolutionTest {
     @Test
     public void testRoosterSound() {
         rooster.sound();
+        Assert.assertEquals("Cock-a-doodle-doo\n", outContent.toString());
+    }
+
+    @Test
+    public void testParrotSoundWithDog() {
+        Parrot parrot = new Parrot(new Dog());
+        parrot.sound();
+        Assert.assertEquals("Woof, woof\n", outContent.toString());
+    }
+
+    @Test
+    public void testParrotSoundWithCat() {
+        Parrot parrot = new Parrot(new Cat());
+        parrot.sound();
+        Assert.assertEquals("Meow\n", outContent.toString());
+    }
+
+    @Test
+    public void testParrotSoundWithRooster() {
+        Parrot parrot = new Parrot(new Rooster());
+        parrot.sound();
         Assert.assertEquals("Cock-a-doodle-doo\n", outContent.toString());
     }
 

@@ -1,6 +1,6 @@
 package com.example.singtelassignment.model;
 
-public class Duck extends BirdAbstraction implements UnderWaterAnimal {
+public class Duck extends Animal implements SwimAnimal, SoundAnimal {
     @Override
     public void sound() {
         System.out.println("Quack, quack");

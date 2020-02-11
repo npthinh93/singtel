@@ -1,5 +1,5 @@
 package com.example.singtelassignment.model;
 
-public interface SkyAnimal {
+public interface FlyAnimal {
     void fly();
 }

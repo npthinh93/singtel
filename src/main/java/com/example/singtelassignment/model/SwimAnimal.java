@@ -1,5 +1,5 @@
 package com.example.singtelassignment.model;
 
-public interface UnderWaterAnimal {
+public interface SwimAnimal {
     void swim();
 }
