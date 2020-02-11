@@ -3,6 +3,7 @@ package com.example.singtelassignment.test;
 import com.example.singtelassignment.model.Bird;
 import com.example.singtelassignment.model.Chicken;
 import com.example.singtelassignment.model.Duck;
+import com.example.singtelassignment.model.Rooster;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,6 +16,7 @@ public class SolutionTest {
     private Bird bird;
     private Chicken chicken;
     private Duck duck;
+    private Rooster rooster;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
@@ -24,6 +26,7 @@ public class SolutionTest {
         bird = new Bird();
         chicken = new Chicken();
         duck = new Duck();
+        rooster = new Rooster();
     }
 
     @After
@@ -65,6 +68,12 @@ public class SolutionTest {
     public void testChickenSound() {
         chicken.sound();
         Assert.assertEquals("Cluck, cluck\n", outContent.toString());
+    }
+
+    @Test
+    public void testRoosterSound() {
+        rooster.sound();
+        Assert.assertEquals("Cock-a-doodle-doo\n", outContent.toString());
     }
 
 }
