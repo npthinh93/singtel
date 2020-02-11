@@ -127,4 +127,18 @@ public class SolutionTest {
     public void testSharkIsEatFish() {
         Assert.assertTrue(shark.isEatFish());
     }
+
+    @Test
+    public void testCaterpillarWalk() {
+        Caterpillar.instance().walk();
+        Assert.assertEquals("I am walking\n", outContent.toString());
+    }
+
+    @Test
+    public void testCaterpillarUpdateToButterfly() {
+        ButterflyContext butterflyContext = new ButterflyContext(Caterpillar.instance());
+        butterflyContext.update();
+        MetamorphosisState butterflyState = butterflyContext.getMetamorphosisState();
+        Assert.assertTrue(butterflyState instanceof Butterfly);
+    }
 }
