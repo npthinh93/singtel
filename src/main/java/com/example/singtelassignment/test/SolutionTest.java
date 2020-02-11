@@ -18,16 +18,33 @@ public class SolutionTest {
     private Clownfish clownfish;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
+    private Animal[] animals;
+    private SolutionService solutionService;
 
     @Before
     public void before() {
         System.setOut(new PrintStream(outContent));
+
         bird = new Bird();
         chicken = new Chicken();
         duck = new Duck();
         rooster = new Rooster();
         shark = new Shark();
         clownfish = new Clownfish();
+        animals = new Animal[]{new Bird(),
+                new Duck(),
+                new Chicken(),
+                new Rooster(),
+                new Parrot(),
+                new Fish(),
+                new Shark(),
+                new Clownfish(),
+                new Dolphin(),
+                new Frog(),
+                new Dog(),
+                Butterfly.instance(),
+                new Cat()};
+        solutionService = new SolutionService();
     }
 
     @After
@@ -140,5 +157,25 @@ public class SolutionTest {
         butterflyContext.update();
         MetamorphosisState butterflyState = butterflyContext.getMetamorphosisState();
         Assert.assertTrue(butterflyState instanceof Butterfly);
+    }
+
+    @Test
+    public void countingFlyAnimals() {
+        Assert.assertEquals(2, solutionService.countAnimalCanFly(animals));
+    }
+
+    @Test
+    public void countingWalkAnimals() {
+        Assert.assertEquals(2, solutionService.countAnimalCanWalk(animals));
+    }
+
+    @Test
+    public void countingSingAnimals() {
+        Assert.assertEquals(1, solutionService.countAnimalCanSing(animals));
+    }
+
+    @Test
+    public void countingSwimAnimals() {
+        Assert.assertEquals(6, solutionService.countAnimalCanSwim(animals));
     }
 }
