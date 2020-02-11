@@ -14,6 +14,8 @@ public class SolutionTest {
     private Chicken chicken;
     private Duck duck;
     private Rooster rooster;
+    private Shark shark;
+    private Clownfish clownfish;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
@@ -24,6 +26,8 @@ public class SolutionTest {
         chicken = new Chicken();
         duck = new Duck();
         rooster = new Rooster();
+        shark = new Shark();
+        clownfish = new Clownfish();
     }
 
     @After
@@ -94,4 +98,33 @@ public class SolutionTest {
         Assert.assertEquals("Cock-a-doodle-doo\n", outContent.toString());
     }
 
+    @Test
+    public void testSharkSize() {
+        Assert.assertEquals("large", shark.getSize());
+    }
+
+    @Test
+    public void testSharkColor() {
+        Assert.assertEquals("grey", shark.getColor());
+    }
+
+    @Test
+    public void testClownfishSize() {
+        Assert.assertEquals("small", clownfish.getSize());
+    }
+
+    @Test
+    public void testClownfishColor() {
+        Assert.assertEquals("orange", clownfish.getColor());
+    }
+
+    @Test
+    public void testClownfishIsJoke() {
+        Assert.assertTrue(clownfish.isJoke());
+    }
+
+    @Test
+    public void testSharkIsEatFish() {
+        Assert.assertTrue(shark.isEatFish());
+    }
 }
